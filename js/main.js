@@ -8,17 +8,21 @@ let currentUniqueCode = "000";
 let isSubmitting = false;
 /* ================= UTIL ================= */
 
-function formatRupiah(num) {
-  if (!num) return "0";
-  return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+function formatRupiah(angka) {
+  return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function unformatRupiah(str) {
-  return parseInt(str.replace(/\./g, "")) || 0;
+  return parseInt(str.replace(/\D/g, ""), 10) || 0;
+}
+
+function hitungTotalDenganKode(jumlahFormatted, kodeUnik) {
+  const jumlah = unformatRupiah(jumlahFormatted);
+  const kode = parseInt(kodeUnik, 10) || 0;
+  return jumlah + kode;
 }
 
 /* ================= AMOUNT ================= */
-
 function setupAmountInput() {
   const input = document.getElementById("amountInput");
   if (!input) return;
@@ -47,12 +51,12 @@ function setupAmountInput() {
 function calculateTotal() {
   const amount = formatRupiah(document.getElementById("amountInput").value);
   const unique = parseInt(currentUniqueCode) || 0;
-  const total = amount + unique;
+  const total = hitungTotalDenganKode(amount, unique);
 
   document.getElementById("displayAmount").textContent = formatRupiah(amount);
   document.getElementById("displayUniqueCode").textContent = currentUniqueCode;
-  document.getElementById("displayTotal").textContent = formatRupiah(total);
-  document.getElementById("totalAmount").textContent = unformatRupiah(total);
+  document.getElementById("displayTotal").textContent = total;
+  document.getElementById("totalAmount").textContent = total;
 }
 
 /* ================= UNIQUE CODE ================= */
