@@ -34,23 +34,30 @@ function setupAmountInput() {
   const input = document.getElementById("amountInput");
   if (!input) return;
 
+  // Saat mengetik
   input.addEventListener("input", () => {
+    let value = unformatRupiah(input.value);
     input.value = value ? formatRupiah(value) : "";
     calculateTotal();
   });
 
+  // Saat keluar dari input
   input.addEventListener("blur", () => {
     let value = unformatRupiah(input.value);
-    if (value < 100) {
-      value = 0;
+
+    if (value > 0 && value < 100000) {
       showToast("Jumlah minimum Rp 100.000", "warning");
+      value = 100000;
     }
-    input.value = formatRupiah(value);
+
+    input.value = value ? formatRupiah(value) : "";
     calculateTotal();
   });
 
+  // Saat fokus → select semua
   input.addEventListener("focus", () => input.select());
 }
+
 
 /* ================= TOTAL ================= */
 
