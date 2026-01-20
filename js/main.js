@@ -52,7 +52,7 @@ function calculateTotal() {
   document.getElementById("displayAmount").textContent = formatRupiah(amount);
   document.getElementById("displayUniqueCode").textContent = currentUniqueCode;
   document.getElementById("displayTotal").textContent = formatRupiah(total);
-  document.getElementById("totalAmount").textContent = formatRupiah(total);
+  document.getElementById("totalAmount").textContent = unformatRupiah(total);
 }
 
 /* ================= UNIQUE CODE ================= */
