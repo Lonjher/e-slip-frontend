@@ -13,7 +13,7 @@ function formatRupiah(angka) {
 }
 
 function unformatRupiah(str) {
-  return parseInt(str.replace(/\D/g, ""), 10) || 0;
+  return parseInt(str.replace(/\D/g, "."), 10) || 0;
 }
 
 function hitungTotalDenganKode(jumlahFormatted, kodeUnik) {
