@@ -8,18 +8,25 @@ let currentUniqueCode = "000";
 let isSubmitting = false;
 /* ================= UTIL ================= */
 
+function formatRupiahDenganKodeUnik(value, kodeUnik) {
+  const angka = parseInt(String(value).replace(/\D/g, ""), 10) || 0;
+  const kode = String(kodeUnik).padStart(3, "0");
+
+  // Format rupiah normal dulu
+  const rupiah = angka.toLocaleString("id-ID");
+
+  // Ganti .000 TERAKHIR dengan .kodeUnik
+  return rupiah.replace(/\.000$/, `.${kode}`);
+}
+
 function formatRupiah(angka) {
-  return angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return angka
+    .toString()
+    .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
 
 function unformatRupiah(str) {
   return parseInt(str.replace(/\D/g, ""), 10) || 0;
-}
-
-function hitungTotalDenganKode(jumlahFormatted, kodeUnik) {
-  const jumlah = unformatRupiah(jumlahFormatted);
-  const kode = parseInt(kodeUnik, 10) || 0;
-  return jumlah + kode;
 }
 
 /* ================= AMOUNT ================= */
@@ -28,14 +35,13 @@ function setupAmountInput() {
   if (!input) return;
 
   input.addEventListener("input", () => {
-    const value = unformatRupiah(input.value);
     input.value = value ? formatRupiah(value) : "";
     calculateTotal();
   });
 
   input.addEventListener("blur", () => {
     let value = unformatRupiah(input.value);
-    if (value < 100000) {
+    if (value < 100) {
       value = 0;
       showToast("Jumlah minimum Rp 100.000", "warning");
     }
@@ -49,14 +55,13 @@ function setupAmountInput() {
 /* ================= TOTAL ================= */
 
 function calculateTotal() {
-  const amount = formatRupiah(document.getElementById("amountInput").value);
   const unique = parseInt(currentUniqueCode) || 0;
-  const total = hitungTotalDenganKode(amount, unique);
+  const total = formatRupiahDenganKodeUnik(document.getElementById("amountInput").value, unique);
 
-  document.getElementById("displayAmount").textContent = formatRupiah(amount);
+  document.getElementById("displayAmount").textContent = formatRupiah(document.getElementById("amountInput").value);
   document.getElementById("displayUniqueCode").textContent = currentUniqueCode;
   document.getElementById("displayTotal").textContent = total;
-  document.getElementById("totalAmount").textContent = total;
+  document.getElementById("totalAmount").textContent = formatRupiah(document.getElementById("amountInput").value);
 }
 
 /* ================= UNIQUE CODE ================= */
