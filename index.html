@@ -121,29 +121,53 @@
                   <option value="" disabled selected>
                     Pilih program studi
                   </option>
-                  <option value="Teknologi Informasi">Teknologi Informasi</option>
+                  <option value="Teknologi Informasi">
+                    Teknologi Informasi
+                  </option>
                   <option value="Teknik Sipil">Teknik Sipil</option>
                   <option value="Kecerdasan Buatan">Kecerdasan Buatan</option>
                   <option value="Ilmu Komunikasi">Ilmu Komunikasi</option>
                   <option value="Sastra Indonesia">Sastra Indonesia</option>
-                  <option value="Hukum Ekonomi Syariah">Hukum Ekonomi Syariah</option>
-                  <option value="Hukum Keluarga Islam">Hukum Keluarga Islam</option>
-                  <option value="Ekonomi Syariah (S1)">Ekonomi Syariah (S1)</option>
+                  <option value="Hukum Ekonomi Syariah">
+                    Hukum Ekonomi Syariah
+                  </option>
+                  <option value="Hukum Keluarga Islam">
+                    Hukum Keluarga Islam
+                  </option>
+                  <option value="Ekonomi Syariah (S1)">
+                    Ekonomi Syariah (S1)
+                  </option>
                   <option value="Perbankan Syariah">Perbankan Syariah</option>
                   <option value="Bisnis Digital">Bisnis Digital</option>
                   <option value="Hukum Bisnis">Hukum Bisnis</option>
-                  <option value="Pendidikan Agama Islam (S1)">Pendidikan Agama Islam (S1)</option>
-                  <option value="Pendidikan Bahasa Arab">Pendidikan Bahasa Arab</option>
-                  <option value="Pendidikan Islam Anak Usia Dini">Pendidikan Islam Anak Usia Dini</option>
-                  <option value="Ilmu Qu'an dan Tafsir">Ilmu Qu'an dan Tafsir</option>
-                  <option value="Tasawuf dan Psikoterapi">Tasawuf dan Psikoterapi</option>
+                  <option value="Pendidikan Agama Islam (S1)">
+                    Pendidikan Agama Islam (S1)
+                  </option>
+                  <option value="Pendidikan Bahasa Arab">
+                    Pendidikan Bahasa Arab
+                  </option>
+                  <option value="Pendidikan Islam Anak Usia Dini">
+                    Pendidikan Islam Anak Usia Dini
+                  </option>
+                  <option value="Ilmu Qu'an dan Tafsir">
+                    Ilmu Qu'an dan Tafsir
+                  </option>
+                  <option value="Tasawuf dan Psikoterapi">
+                    Tasawuf dan Psikoterapi
+                  </option>
                   <option value="Biologi">Biologi</option>
                   <option value="Kimia">Kimia</option>
-                  <option value="Teknologi Hasil Pertanian">Teknologi Hasil Pertanian</option>
+                  <option value="Teknologi Hasil Pertanian">
+                    Teknologi Hasil Pertanian
+                  </option>
                   <option value="Matematika">Matematika</option>
                   <option value="Sains Lingkungan">Sains Lingkungan</option>
-                  <option value="Pendidikan Agama Islam (S2)">Pendidikan Agama Islam (S2)</option>
-                  <option value="Ekonomi Syariah (S2)">Ekonomi Syariah (S2)</option>
+                  <option value="Pendidikan Agama Islam (S2)">
+                    Pendidikan Agama Islam (S2)
+                  </option>
+                  <option value="Ekonomi Syariah (S2)">
+                    Ekonomi Syariah (S2)
+                  </option>
                 </select>
               </div>
 
@@ -348,9 +372,7 @@
             <p class="font-medium text-gray-800">
               Bank Syariah Indonesia (BSI)
             </p>
-            <p class="text-sm text-gray-600 font-mono mt-1">
-              7304 3988 78
-            </p>
+            <p class="text-sm text-gray-600 font-mono mt-1">7304 3988 78</p>
           </div>
           <button class="text-blue-600 hover:text-blue-800" title="Salin nomor rekening">
             <i class="far fa-copy"></i>
@@ -394,6 +416,30 @@
             <i class="far fa-copy"></i>
           </button>
         </div>
+
+        <!-- BNI -->
+        <div class="flex items-center p-3 bg-gray-50 shadow-sm rounded-lg hover:bg-gray-100 transition-colors">
+          <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center mr-3">
+            <i class="fas fa-university text-white text-sm"></i>
+          </div>
+          <div class="flex-1">
+            <p class="font-medium text-gray-800 text-sm">BNI</p>
+            <p class="text-xs text-gray-600 font-mono mt-1">5516 0000 00</p>
+          </div>
+          <div class="relative group">
+            <button class="text-blue-600 hover:text-blue-800 p-1" onclick="copyText('5516000000', 'BNI')">
+              <i class="far fa-copy text-sm"></i>
+            </button>
+            <div class="absolute bottom-full right-0 mb-2 hidden group-hover:block">
+              <div class="bg-gray-800 text-white text-xs py-1 px-2 rounded whitespace-nowrap">
+                Salin nomor rekening
+                <div
+                  class="absolute top-full right-2 w-0 h-0 border-l-4 border-r-4 border-t-4 border-l-transparent border-r-transparent border-t-gray-800">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -401,9 +447,7 @@
     <footer class="text-center mt-12 pt-6 border-t border-gray-200">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div>
-          <h3 class="font-bold text-gray-800">
-            Sistem Pembayaran Online
-          </h3>
+          <h3 class="font-bold text-gray-800">Sistem Pembayaran Online</h3>
           <p class="text-gray-600 text-sm">Universitas Annuquyah</p>
         </div>
         <div class="text-gray-500 text-sm">
